@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <CLRTestKind>RunOnly</CLRTestKind>
-    <CLRTestPriority>1</CLRTestPriority>
     <CLRTestProjectToRun>ParallelCrash.csproj</CLRTestProjectToRun>
     <CLRTestExecutionArguments>1</CLRTestExecutionArguments>
     <CLRTestExitCode>134</CLRTestExitCode>

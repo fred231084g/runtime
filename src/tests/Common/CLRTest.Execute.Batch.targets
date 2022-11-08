@@ -153,7 +153,7 @@ IF NOT "%CLRTestExitCode%"=="%CLRTestExpectedExitCode%" (
 )
 
 :TakeLock
-md %lockFolder%
+md %lockFolder% 2>nul
 IF NOT "!ERRORLEVEL!"=="0" (
 timeout /t 10 /nobreak
 goto :TakeLock

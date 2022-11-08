@@ -190,6 +190,7 @@ if defined RunCrossGen2 (
     if exist "IL-CG2" (
       REM We may have come in the middle of a concurrent CG2 compilation, wait for it to finish
       :ProbeCompilationFinished
+      echo Concurrent wait - CrossGen2Status = !CrossGen2Status!, R2RDumpStatus = !R2RDumpStatus!
       if exist "!compilationDoneFlagFile!" goto :DoneCrossgen2OperationsNoRelease
       echo Waiting for concurrent Crossgen2 compilation^: !compilationDoneFlagFile!
       timeout /t 5 /nobreak
@@ -292,6 +293,7 @@ if defined RunCrossGen2 (
 
 :DoneR2RDumpOperations
     endlocal & set "R2RDumpStatus=%R2RDumpStatus%" &set "CrossGen2Status=%CrossGen2Status%"
+    echo DoneR2RDumpOperations, R2RDumpStatus = '!R2RDumpStatus!', Crossgen2Status = '!CrossGen2Status!'
 
     echo %time%
     Exit /b 0
@@ -300,6 +302,7 @@ if defined RunCrossGen2 (
     echo Crossgen2 compilation finished, exit code !CrossGen2Status!>>!compilationDoneFlagFile!
     call :ReleaseLock
 :DoneCrossgen2OperationsNoRelease
+    echo DoneCrossgen2OperationsNoRelease - CrossGen2Status = '!CrossGen2Status!', R2RDumpStatus = '!R2RDumpStatus!'
     IF NOT !CrossGen2Status!==0 (
         ECHO Crossgen2 failed with exitcode - !CrossGen2Status!
         Exit /b 1
