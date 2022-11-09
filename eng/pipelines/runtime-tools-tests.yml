@@ -78,4 +78,4 @@ extends:
             or(
               eq(dependencies.evaluate_paths.outputs['SetPathVars_tools_illink.containsChange'], true),
               eq(variables['isRollingBuild'], true))
-          buildArgs: -s tools.illinktests -c $(_BuildConfig)
+          buildArgs: -s tools.illinktests -test -c $(_BuildConfig)
