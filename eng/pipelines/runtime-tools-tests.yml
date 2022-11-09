@@ -74,4 +74,8 @@ extends:
           testGroup: innerloop
           timeoutInMinutes: 120
           nameSuffix: Runtime_Release
+          condition:
+            or(
+              eq(dependencies.evaluate_paths.outputs['SetPathVars_tools_illink.containsChange'], true),
+              eq(variables['isRollingBuild'], true))
           buildArgs: -s tools.illinktests -c $(_BuildConfig)
