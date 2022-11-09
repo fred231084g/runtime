@@ -73,7 +73,7 @@ extends:
         jobParameters:
           testGroup: innerloop
           timeoutInMinutes: 120
-          nameSuffix: Runtime_Release
+          nameSuffix: ILLink_Runtime_Testing
           condition:
             or(
               eq(dependencies.evaluate_paths.outputs['SetPathVars_tools_illink.containsChange'], true),
