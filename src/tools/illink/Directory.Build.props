@@ -33,5 +33,6 @@
   <PropertyGroup>
     <LangVersion>preview</LangVersion>
     <AnalysisLevel>latest</AnalysisLevel>
+    <UseVSTestRunner>true</UseVSTestRunner>
   </PropertyGroup>
 </Project>
